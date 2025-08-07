@@ -1,0 +1,30 @@
+name: Lighthouse Audit on Vercel
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Wait for Vercel Deployment
+        uses: patrickedqvist/wait-for-vercel-preview@v1
+        id: vercel
+        with:
+          token: ${{ secrets.VERCEL_TOKEN }}
+          project: this-website-is-ass
+          max_timeout: 120
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install Lighthouse CLI
+        run: npm install -g @lhci/cli
+
+      - name: Run Lighthouse CI on deployed site
+        run: lhci autorun --collect.url=${{ steps.vercel.outputs.url }}
+
