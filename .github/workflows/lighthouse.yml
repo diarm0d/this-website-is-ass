@@ -9,13 +9,12 @@ jobs:
   lighthouse:
     runs-on: ubuntu-latest
     steps:
-      - name: Wait for Vercel Deployment
-        uses: patrickedqvist/wait-for-vercel-preview@v1
-        id: vercel
+      - name: Wait for Vercel Preview
+        uses: dolevf/wait-for-vercel@v1
         with:
           token: ${{ secrets.VERCEL_TOKEN }}
-          project: this-website-is-ass
-          max_timeout: 120
+          teamId: ${{ secrets.VERCEL_TEAM_ID }}
+          max_timeout: 300
 
       - name: Setup Node
         uses: actions/setup-node@v3
