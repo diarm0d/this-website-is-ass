@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- FOR THE CURIOUS: This site put together by @diarm0d.  -->
+    <title>This Website is A.S.S.</title>
+    <link rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍑</text></svg>">
+    <meta name="description"
+      content="A web accessibility wiki exposing your tragic common mistakes, best practices, and the digital crimes you commit against screen readers daily.">
+
+    <style>
+      body {
+        font-family: system-ui, sans-serif;
+        background: #fff;
+        color: #000;
+        max-width: 600px;
+        margin: 2rem auto;
+        padding: 1rem;
+        line-height: 1.6;
+      }
+
+      h1,
+      h2,
+      h3 {
+        margin-top: 2rem;
+      }
+
+      pre {
+        overflow-x: auto;
+        white-space: pre-wrap;
+        word-break: break-word;
+        max-width: 100%;
+        background: #f5f5f5;
+        padding: 1rem;
+        border-radius: 4px;
+      }
+
+      code {
+        font-family: monospace;
+        background: #f5f5f5;
+        padding: 0.2rem 0.4rem;
+        border-radius: 4px;
+        
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>This Website is A.S.S.</h1>
+      <p><strong>Accessibility. Seriously. Slaps.</strong></p>
+      <p>And yeah, it works fine without any JavaScript.</p>
+    </header>
+
+    <section>
+      <h2>Welcome to A.S.S.</h2>
+      <p>You think slapping an aria-label on a button makes you some kind of fucking accessibility hero? You think your skip link
+      that only appears on hover deserves a pat on the back from the W3C? You think your 15MB full-screen autoplay video with
+      white text on a cloudy background is "inclusive design"?</p>
+      
+      <b>Wrong, motherfucker.</b>
+      
+      <p></p>Let me show you what a real A.S.S. looks like; Accessible. Super. Semantic. A site that doesn&apos;t send screen readers
+      into cardiac arrest or trap keyboard users in modal purgatory. A site where every alt tag means something, every heading
+      actually describes something, and no one has to click a hidden hamburger menu just to find the fucking “Contact” page:</p>
+      <ul>
+        <li>No hover-only dropdowns</li>
+        <li>No animations that trigger seizures</li>
+        <li>No JavaScript breakage</li>
+        <li>Just plain semantic HTML</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>1. Alt Text or Alt Death</h2>
+      <p>You uploaded 48 images of your flat white and not a single one has alt text. Are your visuals that empty
+        <em>and</em> that meaningless? Without alt, your image is just a black hole of silence to anyone not blessed with
+        20/20 vision and high-speed Wi-Fi.</p>
+    
+      <p>Here's what you did:</p>
+      <pre><code>&lt;img src="hipster-coffee.jpg"&gt;</code></pre>
+        
+      <p>And if you really went the extra mile; you gave it an alt like this:</p>
+      <pre><code>&lt;img src="hipster-coffee.jpg" alt="hipster-coffee."&gt;</code></pre>
+      
+      <p>Congratulations; you just described literally <strong>nothing</strong>. That's not alt text; that's a file name with
+        a period. You think a screen reader user wants to hear “hipster dash coffee dot jpg” while navigating your artisan
+        soap blog?</p>
+
+      <p>Here's what you <strong>should</strong> have done; it's not that hard:</p>
+      <pre><code>&lt;img src="hipster-coffee.jpg" alt="A barista pouring a perfect flat white with a fern leaf latte art"&gt;</code></pre>
+    
+      <p>See that? A little bit of text, a whole lot of dignity. If the image means something, describe it. If it's
+        decorative, slap <code>alt=""</code> on it and move on with your life. But don't you dare leave it blank unless
+        you're doing it <em>on purpose</em>.</p>
+    
+      <p>This is A.S.S. - Accessibility. Seriously. Slaps. So yes; even our cat memes have alt text.</p>
+    </section>
+
+    <section>
+      <h2>2. Contrast, You Colorblind Clown</h2>
+    
+      <p>Your site’s got more pastel than a toddler’s birthday party and less contrast than a Twilight fanfic. Hope your
+        users brought binoculars and a flashlight. Your text looks like it’s playing hide-and-seek with the background.</p>
+    
+      <p>Here’s what you shipped:</p>
+      <div style="background-color: #ffffff; padding: 1rem;">
+        <p style="color: #cccccc;">This is your amazing “content”. Isn’t it just dreamy?</p>
+      </div>
+    
+      <p>1; It fails WCAG. 2; It fails users. 3; It fails as a basic act of human decency.</p>
+    
+      <p>Here’s what you <strong>should</strong> have done:</p>
+      <div style="background-color: #ffffff; padding: 1rem;">
+        <p style="color: #000000;">This is your content. And look at that; it’s actually readable.</p>
+      </div>
+    
+      <p>Need a rule? Here it is: <strong>minimum 4.5:1 contrast ratio for body text</strong>. That’s not a suggestion;
+        that’s the baseline. If you want to go AAA; make it 7:1 and ascend to accessibility nirvana.</p>
+
+      <p>Want to double‑check your colors before shipping? Use a tool like <a href="https://colourcontrast.cc/">Colour
+          Contrast Checker</a> to test background and foreground pairs in real time against WCAG AA/AAA standards; it’s one of
+        the easiest ways to stop forcing users to squint.</p>
+    
+      <p>This is A.S.S. – Accessibility. Seriously. Slaps. And we don’t let users squint like they’re trying to read through
+        fog.</p>
+    </section>
+
+    <section>
+      <h2>3. Tab Me Like One of Your French Girls</h2>
+    
+      <p>You built the Mona Lisa of landing pages; the gradient is tasteful; the buttons have shadows; and your modal pops
+        like champagne on launch day. But try hitting Tab and suddenly the whole thing collapses like a flan in a cupboard.
+      </p>
+    
+      <p>Focus is jumping around like it’s on acid; half your elements aren’t focusable; and that lovingly crafted CTA? It’s
+        a goddamn div with a click handler. Nobody told you about <code>&lt;button&gt;</code> or <code>tabindex</code>; and
+        clearly nobody told your keyboard‑only users they mattered.</p>
+    
+      <p>You know what's hot? Sequential; predictable; tabbing. You know what's hotter? A visible focus state; like a
+        glowing halo of usability wrapped around your interactive elements. It's not just sexy; it's survivable.</p>
+    
+      <p>Here’s what you shipped:</p>
+      <div style="padding: 1rem; border: 1px solid #ccc;">
+        <div onClick="alert('Congrats, you clicked a div. Too bad no one using a keyboard ever will.')"" style="padding: 0.5rem; background: #eee; cursor: pointer; width: fit-content;">Click Me (if you can find me)
+        </div>
+      </div>
+    
+      <p>And here’s what you should have shipped:</p>
+      <div style="padding: 1rem; border: 1px solid #ccc;">
+        <button onclick="alert('Bless you; you used a real &lt;button&gt;. The keyboard users send their regards.')" style="padding: 0.5rem;">Click Me (any way you like)</button>
+      </div>
+    
+      <p>If your site’s not usable with just a keyboard; it’s not usable. Period. Tabbing through your site should feel like
+        a Wes Anderson tracking shot; smooth; linear; intentional. Not like skipping through a PowerPoint made by a drunk
+        raccoon.</p>
+    
+      <p>Rule of A.S.S.; if it can be clicked; it should be focusable. If it can be focused; it should be visible. And if
+        you hide focus rings; you're hiding from responsibility.</p>
+    </section>
+
+    <section>
+      <h2>4. Skip Links, Not Users</h2>
+    
+      <p>Oh, your site has a skip link? Cute. Too bad it’s hidden behind 17 lines of CSS and only appears if you recite the
+        Konami code. Visibility on focus isn’t just a suggestion; it's your one shot at not being a design sociopath.</p>
+    
+      <p>Skip links aren’t optional; they’re the doorman to your website's content. Without one; screen reader and keyboard
+        users are left tapping through your 40-item nav bar like it’s some sadistic side quest. Accessibility is not the
+        place for Easter eggs.</p>
+    
+      <p>Here’s what your skip link should look like:</p>
+    
+      <pre><code>&lt;a href="#main-content" class="skip-link"&gt;Skip to main content&lt;/a&gt;</code></pre>
+    
+      <p>And yes; it should actually be visible when focused:</p>
+    
+      <style>
+        .skip-link {
+          position: absolute;
+          top: -40px;
+          left: 0;
+          background: black;
+          color: white;
+          padding: 8px 16px;
+          z-index: 100;
+          text-decoration: none;
+        }
+    
+        .skip-link:focus {
+          top: 0;
+        }
+      </style>
+    
+      <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+      <p>Stick it just after the opening <code>&lt;body&gt;</code>. Give it real contrast. Let it live its best life. Your
+        users will thank you — or at least they’ll stop cursing your name.</p>
+    
+      <p>Because nothing says “I care” like letting someone <em>skip your 9-column, 3-tier, fully animated navigation
+          clusterfuck</em> and just get to the damn content.</p>
+    </section>
+
+    <section>
+      <h2>5. Headings, Hierarchy, and Hella Confusion</h2>
+    
+      <p>You’ve got 12 <code>&lt;div&gt;</code>s and not a single heading in sight. You use <code>&lt;h4&gt;</code> before
+        <code>&lt;h1&gt;</code> like your content was organized by a feral cat on a Red Bull bender. Assistive tech isn’t
+        psychic — give it a goddamn roadmap.</p>
+    
+      <p>Headings aren’t decorative; they’re structural. Screen readers rely on them like lost hikers rely on trail markers.
+        When you go straight from <code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code> and then back to
+        <code>&lt;h2&gt;</code>, you’re not edgy — you’re chaos incarnate.</p>
+    
+      <p>Let’s break this down like grown-ups:</p>
+    
+      <pre><code>&lt;h1&gt;Main Page Title&lt;/h1&gt;
+    &lt;h2&gt;Section Heading&lt;/h2&gt;
+    &lt;h3&gt;Subsection Heading&lt;/h3&gt;</code></pre>
+    
+      <p>Simple. Hierarchical. Understandable. You wouldn’t write an essay with the conclusion at the top and the intro
+        buried in footnotes — so don’t code your site like that.</p>
+    
+      <p>And no — <strong>styling your <code>&lt;div&gt;</code> to "look like" a heading</strong> doesn’t make it one. Your
+        CSS can lie to your eyes, but it can’t fool a screen reader. That’s like putting a wig on a chair and calling it
+        grandma.</p>
+    
+      <p>If your headings don’t follow a logical order; you're not building a site — you're building a semantic dumpster
+        fire.</p>
+    </section>
+
+
+    <footer>
+      <p>
+        <em>This site is satire. But the accessibility is dead serious.</em>
+      </p>
+    </footer>
+  </body>
+</html>
